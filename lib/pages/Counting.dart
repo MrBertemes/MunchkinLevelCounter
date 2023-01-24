@@ -19,9 +19,10 @@ class _CountingState extends State<Counting> {
     return Scaffold(
       body: Center(
         child: ListView.builder(
+          shrinkWrap: true,
           itemCount: args as int,
           itemBuilder: ((context, index) {
-            return const Player();
+            return const Center(child: ListTile(title: Player()));
           }),
         ),
       ),
