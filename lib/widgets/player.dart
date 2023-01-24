@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Player extends StatefulWidget {
   const Player({super.key});
 
@@ -9,18 +8,22 @@ class Player extends StatefulWidget {
 }
 
 class _PlayerState extends State<Player> {
-  late TextEditingController nivel;
+  late TextEditingController level;
+  late TextEditingController gold;
 
   @override
   void initState() {
-    nivel = TextEditingController();
-    nivel.text = '1';
+    level = TextEditingController();
+    level.text = '1';
+    gold = TextEditingController();
+    gold.text = '0';
     super.initState();
   }
 
   @override
   void dispose() {
-    nivel.dispose();
+    level.dispose();
+    gold.dispose();
     super.dispose();
   }
 
@@ -28,33 +31,78 @@ class _PlayerState extends State<Player> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
         children: [
-          IconButton(
-            onPressed: () {
-              var num = int.parse(nivel.text);
-              if (num > 1) {
-                num = num - 1;
-                setState(() {
-                  nivel.text = num.toString();
-                });
-              }
-            },
-            icon: const Icon(Icons.arrow_back_ios_rounded),
+          Row(
+            // Level
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: () {
+                  var num = int.parse(level.text);
+                  if (num > 1) {
+                    num = num - 1;
+                    setState(() {
+                      level.text = num.toString();
+                    });
+                  }
+                },
+                icon: const Icon(Icons.arrow_back_ios_rounded),
+              ),
+              Center(
+                child: Text(
+                  level.text,
+                  style: const TextStyle(
+                    fontFamily: 'Munchkin',
+                  ),
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  var num = int.parse(level.text);
+                  num = num + 1;
+                  setState(() {
+                    level.text = num.toString();
+                  });
+                },
+                icon: const Icon(Icons.arrow_forward_ios_rounded),
+              ),
+            ],
           ),
-          Center(
-            child: Text(nivel.text),
-          ),
-          IconButton(
-            onPressed: () {
-              var num = int.parse(nivel.text);
-              num = num + 1;
-              setState(() {
-                  nivel.text = num.toString();
-                });
-            },
-            icon: const Icon(Icons.arrow_forward_ios_rounded),
+          Row(
+            // Gold
+            children: [
+              IconButton(
+                onPressed: () {
+                  var num = int.parse(gold.text);
+                  if (num > 1) {
+                    num = num - 1;
+                    setState(() {
+                      level.text = num.toString();
+                    });
+                  }
+                },
+                icon: const Icon(Icons.arrow_back_ios_rounded),
+              ),
+              Center(
+                child: Text(
+                  level.text,
+                  style: const TextStyle(
+                    fontFamily: 'Munchkin',
+                  ),
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  var num = int.parse(level.text);
+                  num = num + 1;
+                  setState(() {
+                    level.text = num.toString();
+                  });
+                },
+                icon: const Icon(Icons.arrow_forward_ios_rounded),
+              ),
+            ],
           ),
         ],
       ),

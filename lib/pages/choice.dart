@@ -5,34 +5,64 @@ class Choice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size sizes = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/count', arguments: 3);
-            },
-            child: const Text('3'),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.resolveWith(
+                    (states) => Size(sizes.width * 0.50, sizes.height * 0.15)),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/count', arguments: 3);
+              },
+              child: const Text('3', style: TextStyle(fontFamily: 'Munchkin')),
+            ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/count', arguments: 4);
-            },
-            child: const Text('4'),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.resolveWith(
+                  (states) => Size(sizes.width * 0.50, sizes.height * 0.15),
+                ),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/count', arguments: 4);
+              },
+              child: const Text('4', style: TextStyle(fontFamily: 'Munchkin')),
+            ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/count', arguments: 5);
-            },
-            child: const Text('5'),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.resolveWith(
+                    (states) => Size(sizes.width * 0.50, sizes.height * 0.15)),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/count', arguments: 5);
+              },
+              child: const Text('5', style: TextStyle(fontFamily: 'Munchkin')),
+            ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/count', arguments: 6);
-            },
-            child: const Text('6'),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.resolveWith(
+                    (states) => Size(sizes.width * 0.50, sizes.height * 0.15)),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/count', arguments: 6);
+              },
+              child: const Text('6', style: TextStyle(fontFamily: 'Munchkin')),
+            ),
           ),
         ],
       )),
