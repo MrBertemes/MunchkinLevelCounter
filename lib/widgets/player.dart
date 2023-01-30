@@ -71,14 +71,15 @@ class _PlayerState extends State<Player> {
           ),
           Row(
             // Gold
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
                 onPressed: () {
                   var num = int.parse(gold.text);
-                  if (num > 1) {
-                    num = num - 1;
+                  if (num > 0) {
+                    num = num - 100;
                     setState(() {
-                      level.text = num.toString();
+                      gold.text = num.toString();
                     });
                   }
                 },
@@ -86,7 +87,7 @@ class _PlayerState extends State<Player> {
               ),
               Center(
                 child: Text(
-                  level.text,
+                  gold.text,
                   style: const TextStyle(
                     fontFamily: 'Munchkin',
                   ),
@@ -94,10 +95,10 @@ class _PlayerState extends State<Player> {
               ),
               IconButton(
                 onPressed: () {
-                  var num = int.parse(level.text);
-                  num = num + 1;
+                  var num = int.parse(gold.text);
+                  num = num + 100;
                   setState(() {
-                    level.text = num.toString();
+                    gold.text = num.toString();
                   });
                 },
                 icon: const Icon(Icons.arrow_forward_ios_rounded),

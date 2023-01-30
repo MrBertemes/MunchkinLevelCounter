@@ -3,7 +3,6 @@
 import 'package:counter/widgets/player.dart';
 import 'package:flutter/material.dart';
 
-
 class Counting extends StatefulWidget {
   final numberOfPlayers;
   const Counting({super.key, this.numberOfPlayers = 3});
@@ -22,7 +21,10 @@ class _CountingState extends State<Counting> {
           shrinkWrap: true,
           itemCount: args as int,
           itemBuilder: ((context, index) {
-            return const Center(child: ListTile(title: Player()));
+            return Card(
+              elevation: 4,
+              child: ListTile(title: Player()),
+            );
           }),
         ),
       ),
